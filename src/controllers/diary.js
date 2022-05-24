@@ -56,4 +56,23 @@ const diaryById = async (req, res) => {
 }
 
 
-module.exports = { createDiary, findDiary, diaryById}  
+// update
+const updateDiary = async (req, res) => {
+
+  const {plan, affirmation} = req.body
+  const updatedDiary = await prisma.diary.update({
+    where: {
+      id: parseInt(req.params.id),
+    },
+    data: {
+      plan,
+      affirmation,
+    },
+  })
+  console.log("Checking the updated response", updatedDiary)
+  res.json({ data: updatedDiary });
+}
+
+
+
+module.exports = { createDiary, findDiary, diaryById, updateDiary}  

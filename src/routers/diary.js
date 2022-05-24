@@ -1,6 +1,6 @@
 const express = require("express");
 const {
-    findDiary, createDiary, diaryById
+    findDiary, createDiary, diaryById, updateDiary
 } = require('../controllers/diary');
 
 const router = express.Router();
@@ -11,6 +11,6 @@ const router = express.Router();
 router.get("/", findDiary);
 router.post('/:id', createDiary);
 router.get('/:id', diaryById);
-
+router.patch('/:id', updateDiary);
 
 module.exports = router;
