@@ -2,18 +2,26 @@ const prisma = require('../utils/prisma');
 
 const findDiary = async (req, res) => {
   const where = {}
+  const { startDate, endDate } = req.query
+  console.log("Checking data:", startDate, endDate)
+  if (startDate || endDate) {
+    where.createdAt = {
+      gte: new Date(startDate.substring(4, 15)),
+      lt: new Date(endDate.substring(4, 15)),
+    };
+  }
   const foundDiary = await prisma.diary.findMany({
     where,
-//     include: { 
-//         profile: true, 
-//         diary: true }
+    //     include: { 
+    //         profile: true, 
+    //         diary: true }
   })
   res.json({ diaries: foundDiary });
 }
 
 //Build a route to create a new diary
 const createDiary = async (req, res) => {
-    const userId = req.params.id
+  const userId = req.params.id
   const {
     plan,
     affirmation,
@@ -26,13 +34,13 @@ const createDiary = async (req, res) => {
       plan,
       affirmation,
       User: {
-         connect:{
-            id: parseInt(userId)
-         }
+        connect: {
+          id: parseInt(userId)
+        }
       }
     },
     include: {
-        User: true
+      User: true
     }
 
   })
@@ -59,7 +67,7 @@ const diaryById = async (req, res) => {
 // update
 const updateDiary = async (req, res) => {
 
-  const {plan, affirmation} = req.body
+  const { plan, affirmation } = req.body
   const updatedDiary = await prisma.diary.update({
     where: {
       id: parseInt(req.params.id),
@@ -75,4 +83,4 @@ const updateDiary = async (req, res) => {
 
 
 
-module.exports = { createDiary, findDiary, diaryById, updateDiary}  
+module.exports = { createDiary, findDiary, diaryById, updateDiary }  
