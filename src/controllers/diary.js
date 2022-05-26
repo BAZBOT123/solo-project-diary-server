@@ -82,5 +82,19 @@ const updateDiary = async (req, res) => {
 }
 
 
+const deleteDiary = async (req, res) => {
 
-module.exports = { createDiary, findDiary, diaryById, updateDiary }  
+  const deletedDiary = await prisma.diary.delete({
+    where: {
+      id: parseInt(req.params.id),
+    },
+  })
+  res.json({ data: deletedDiary });
+}
+
+
+
+
+
+
+module.exports = { createDiary, findDiary, diaryById, updateDiary, deleteDiary }  

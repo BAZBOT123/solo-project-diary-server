@@ -1,8 +1,8 @@
 const express = require("express");
 const {
-    findDiary, createDiary, diaryById, updateDiary
+    findDiary, createDiary, diaryById, updateDiary, deleteDiary
 } = require('../controllers/diary');
-
+ 
 const router = express.Router();
 
 // In index.js, we told express that the /customer route should use this router file
@@ -12,5 +12,6 @@ router.get("/", findDiary);
 router.post('/:id', createDiary);
 router.get('/:id', diaryById);
 router.patch('/:id', updateDiary);
+router.delete('/:id', deleteDiary);
 
 module.exports = router;
