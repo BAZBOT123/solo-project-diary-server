@@ -1,6 +1,5 @@
 # solo-project-diary-server-
 
-
 ## Setting up
 
 1. Copy `.env.example` and name it `.env`
