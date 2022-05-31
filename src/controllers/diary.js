@@ -1,5 +1,6 @@
 const prisma = require('../utils/prisma');
 
+
 const findDiary = async (req, res) => {
   const where = {}
   const { startDate, endDate } = req.query

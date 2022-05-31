@@ -14,8 +14,8 @@ async function createUser() {
       password: 'yoo',
       profile: {
         create: {
-          dob: '00.00.00',
-          bio: 'yoo',
+          firstName: 'Omar',
+          lastName: 'Barry',
           email: 'alice@boolean.co.uk'
         }
       },

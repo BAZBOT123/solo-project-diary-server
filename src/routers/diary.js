@@ -2,6 +2,7 @@ const express = require("express");
 const {
     findDiary, createDiary, diaryById, updateDiary, deleteDiary
 } = require('../controllers/diary');
+const { checkToken } = require('../middleware/auth');
  
 const router = express.Router();
 
@@ -13,5 +14,8 @@ router.post('/:id', createDiary);
 router.get('/:id', diaryById);
 router.patch('/:id', updateDiary);
 router.delete('/:id', deleteDiary);
+
+
+// router.get('/profile', checkToken, getdiary);
 
 module.exports = router;
