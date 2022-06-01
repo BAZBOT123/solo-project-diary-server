@@ -20,6 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 const diaryRouter = require('./routers/diary');
 app.use('/diary', diaryRouter);
 
+const userRouter = require('./routers/user');
+app.use('/user', userRouter);
 // const registerRouter = require('./routers/register');
 // app.use('/register', registerRouter);
 

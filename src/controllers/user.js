@@ -7,6 +7,7 @@ const key = process.env.KEY;
 const saltRounds = 10;
 
 const createUser = async (req, res) => {
+  console.log("hello", req.body)
   try {
     const schema = Joi.object({
       username: Joi.string().min(3).max(30).required(),
@@ -30,7 +31,7 @@ const createUser = async (req, res) => {
     }
 
     const { username, password, email, firstName, lastName } = value;
-    const userByEmail = await prisma.user.findUnique({ where: { email } });
+    const userByEmail = await prisma.profile.findUnique({ where: { email } });
     const userByUsername = await prisma.user.findUnique({
       where: { username },
     });
