@@ -3,7 +3,7 @@ const {
     findDiary, createDiary, diaryById, updateDiary, deleteDiary
 } = require('../controllers/diary');
 const { checkToken } = require('../middleware/auth');
- 
+
 const router = express.Router();
 
 // In index.js, we told express that the /customer route should use this router file
