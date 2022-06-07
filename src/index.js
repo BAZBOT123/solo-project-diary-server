@@ -14,8 +14,6 @@ app.use(express.json());
 // Tell express to use a URL Encoding middleware
 app.use(express.urlencoded({ extended: true }));
 
-
-
 // Tell express to use your routers here
 const diaryRouter = require('./routers/diary');
 app.use('/diary', diaryRouter);
