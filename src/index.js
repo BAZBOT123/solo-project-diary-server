@@ -9,7 +9,7 @@ const cors = require('cors');
 const app = express();
 app.disable('x-powered-by');
 app.use(cors({
-  origin: 'https://my-diary--server.herokuapp.com/diary?startDate=Wed%20Dec%2007%202022%2010:43:30%20GMT+0000%20(Greenwich%20Mean%20Time)&endDate=Wed%20Dec%2007%202022%2010:43:30%20GMT+0000%20(Greenwich%20Mean%20Time)'
+  origin: '*'
 }));
 // Tell express to use a JSON parser middleware
 app.use(express.json());
