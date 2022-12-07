@@ -8,7 +8,9 @@ const cors = require('cors');
 // Set up express
 const app = express();
 app.disable('x-powered-by');
-app.use(cors());
+app.use(cors({
+  origin: 'https://b-mydiary.netlify.app'
+}));
 // Tell express to use a JSON parser middleware
 app.use(express.json());
 // Tell express to use a URL Encoding middleware
