@@ -17,6 +17,8 @@
 6. `npm run dev` to run the app
 
 
+Note: Find orginal urls above on elephantSQL
+
 # Talking to the server
 You can talk to the server using [Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/) or any other API platform for developers to design, build, test and iterate the APIs within this application.
 

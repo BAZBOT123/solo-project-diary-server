@@ -8,9 +8,7 @@ const cors = require('cors');
 // Set up express
 const app = express();
 app.disable('x-powered-by');
-app.use(cors({
-  origin: 'https://my-diary--server.herokuapp.com/diary?startDate=Wed%20Dec%2007%202022%2011:02:17%20GMT+0000%20(Greenwich%20Mean%20Time)&endDate=Wed%20Dec%2007%202022%2011:02:17%20GMT+0000%20(Greenwich%20Mean%20Time)'
-}));
+app.use(cors());
 // Tell express to use a JSON parser middleware
 app.use(express.json());
 // Tell express to use a URL Encoding middleware
@@ -20,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 const diaryRouter = require('./routers/diary');
 app.use('/diary', diaryRouter);
 
-const userRouter = require('./routers/user');g
+const userRouter = require('./routers/user');
 app.use('/user', userRouter);
 // const registerRouter = require('./routers/register');
 // app.use('/register', registerRouter);
